@@ -9,22 +9,27 @@
 import React from 'react';
 import {
   SafeAreaView,
-  StatusBar,
 } from 'react-native';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import createReducer from './reducer/rootReducer';
 import HookState from './components/HookState';
 import HookEffect from './components/HookEffect';
 import HookMemo from './components/HookMemo';
+import HookRedux from './components/HookRedux';
+
+const store = createStore(createReducer);
 
 const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
+    <Provider store={store}>
       <SafeAreaView>
         {/* <HookState /> */}
         {/* <HookEffect /> */}
-        <HookMemo />
+        {/* <HookMemo /> */}
+        <HookRedux />
       </SafeAreaView>
-    </>
+    </Provider>
   );
 };
 
