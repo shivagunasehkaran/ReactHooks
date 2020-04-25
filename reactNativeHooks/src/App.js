@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import HookState from './components/HookState';
 import HookEffect from './components/HookEffect';
+import HookMemo from './components/HookMemo';
 
 const App = () => {
   return (
@@ -20,7 +21,8 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         {/* <HookState /> */}
-        <HookEffect />
+        {/* <HookEffect /> */}
+        <HookMemo />
       </SafeAreaView>
     </>
   );
