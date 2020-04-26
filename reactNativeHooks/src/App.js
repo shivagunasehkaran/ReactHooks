@@ -24,10 +24,10 @@ const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaView>
-        {/* <HookState /> */}
+        <HookState />
         {/* <HookEffect /> */}
         {/* <HookMemo /> */}
-        <HookRedux />
+        {/* <HookRedux /> */}
       </SafeAreaView>
     </Provider>
   );

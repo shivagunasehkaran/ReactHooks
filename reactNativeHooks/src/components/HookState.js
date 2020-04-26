@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Button, TextInput } from 'react-native';
+import useFetch from './useFetchHook';
 
 const HookState = () => {
     const [growth, setGrowth] = useState(0);
     const [name, setName] = useState('Shiva');
+
+    // API call 
+    const { data, loading } = useFetch(`http://numbersapi.com/${growth}/trivia`);
 
     return (
         <View>
@@ -21,7 +25,8 @@ const HookState = () => {
                 onChangeText={(value) => setName(value)} />
             <Text style={{ fontSize: 20, textAlign: 'left', margin: 30 }}>{"Growth"} : {growth}</Text>
             <Text style={{ fontSize: 20, textAlign: 'left', margin: 30 }}>{"Name"} : {name}</Text>
-            <TouchableOpacity onPress={() => setGrowth(growth + 1)}>
+            <Text style={{ fontSize: 20, textAlign: 'left', margin: 30 }}>{(loading ? 'loading ...' : data)}</Text>
+            <TouchableOpacity onPress={() => setGrowth(growth => growth + 1)}>
                 <View style={{ backgroundColor: 'green', height: 50, marginTop: 100, justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={{ fontSize: 20 }}>{'Increase Growth'}</Text>
                 </View>
